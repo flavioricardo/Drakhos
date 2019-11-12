@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+
+    <title>Drakhos System</title>
+  </head>
+  <body class="bg-light">
+    <div class="container-fluid">
+      <div class="alert alert-warning alert-dismissible fade mt-2" role="alert">
+        Número máximo de pontos atribuídos!
+      </div>
+      <form class="needs-validation" action="" novalidate>
+        <div class="row">
+          <div class="col"></div>
+          <div class="col-2 text-right">
+            <input
+              type="reset"
+              value="Limpar"
+              class="btn btn-warning btn-block text-white"
+              onclick="limparAtributos()"
+            />
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col"><h1>Drakhos System</h1></div>
+          <div class="col numero-pontos"></div>
+        </div>
+
+        <div class="card shadow mb-3">
+          <div class="card-body">
+            <div class="row">
+              <div class="col">
+                <h3>Personagem</h3>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="col">
+                <input type="text" class="form-control" placeholder="Nome" />
+              </div>
+              <div class="col">
+                <input type="text" class="form-control" placeholder="Jogador" />
+              </div>
+              <div class="col">
+                <input type="number" class="form-control" placeholder="Idade" />
+              </div>
+              <div class="col">
+                <input type="text" class="form-control" placeholder="Altura" />
+              </div>
+              <div class="col">
+                <input type="text" class="form-control" placeholder="Peso" />
+              </div>
+              <div class="col">
+                <select
+                  onchange="atribuirPontos(this)"
+                  id=""
+                  class="form-control"
+                >
+                  <option value="">Espécie</option>
+                  <option value="Dragonborn">Dragonborn</option>
+                  <option value="Anão">Anão</option>
+                  <option value="Elfo">Elfo</option>
+                  <option value="Gnomo">Gnomo</option>
+                  <option value="Meio-Elfo">Meio-Elfo</option>
+                  <option value="Meio-Orc">Meio-Orc</option>
+                  <option value="Meio-Humano">Meio-Humano</option>
+                  <option value="Humano">Humano</option>
+                  <option value="Humanóide">Humanóide</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card shadow mb-3">
+          <div class="card-body">
+            <div class="row">
+              <div class="col">
+                <h3>Atributos</h3>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="col">
+                <label for="" class="d-block text-center">
+                  <i class="fas fa-dumbbell"></i>
+                  <span class="d-block">Força</span>
+                </label>
+                <input
+                  type="number"
+                  class="form-control"
+                  onchange="atribuirPontos(this)"
+                  id="forca"
+                  max="10"
+                />
+                <div class="invalid-tooltip fade">
+                  Força deve estar entre 0 e 10
+                </div>
+              </div>
+              <div class="col">
+                <label for="" class="d-block text-center">
+                  <i class="fas fa-tools"></i>
+                  <span class="d-block">Destreza</span>
+                </label>
+                <input
+                  type="number"
+                  class="form-control"
+                  onchange="atribuirPontos(this)"
+                  id="destreza"
+                  max="10"
+                />
+                <div class="invalid-tooltip fade">
+                  Destreza deve estar entre 0 e 10
+                </div>
+              </div>
+              <div class="col">
+                <label for="" class="d-block text-center">
+                  <i class="fas fa-heart"></i>
+                  <span class="d-block">Saúde</span>
+                </label>
+                <input
+                  type="number"
+                  class="form-control"
+                  onchange="atribuirPontos(this)"
+                  id="saude"
+                  max="10"
+                />
+                <div class="invalid-tooltip fade">
+                  Saúde deve estar entre 0 e 10
+                </div>
+              </div>
+              <div class="col">
+                <label for="" class="d-block text-center">
+                  <i class="fas fa-brain"></i>
+                  <span class="d-block">Inteligência</span>
+                </label>
+                <input
+                  type="number"
+                  class="form-control"
+                  onchange="atribuirPontos(this)"
+                  id="inteligencia"
+                  max="10"
+                />
+                <div class="invalid-tooltip fade">
+                  Inteligência deve estar entre 0 e 10
+                </div>
+              </div>
+              <div class="col">
+                <label for="" class="d-block text-center">
+                  <i class="fas fa-lightbulb"></i>
+                  <span class="d-block">Consciência</span>
+                </label>
+                <input
+                  type="number"
+                  class="form-control"
+                  onchange="atribuirPontos(this)"
+                  id="consciencia"
+                  max="10"
+                />
+                <div class="invalid-tooltip fade">
+                  Consciência deve estar entre 0 e 10
+                </div>
+              </div>
+              <div class="col">
+                <label for="" class="d-block text-center">
+                  <i class="fas fa-star"></i>
+                  <span class="d-block">Presença</span>
+                </label>
+                <input
+                  type="number"
+                  class="form-control"
+                  onchange="atribuirPontos(this)"
+                  id="presenca"
+                  max="10"
+                />
+                <div class="invalid-tooltip fade">
+                  Presença deve estar entre 0 e 10
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card shadow mb-3">
+          <div class="card-body">
+            <div class="row">
+              <div class="col">
+                <h3>Estatísticas</h3>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="col">
+                <label for="">
+                  Iniciativa
+                </label>
+                <input
+                  type="number"
+                  class="form-control"
+                  id="iniciativa"
+                  readonly
+                />
+              </div>
+              <div class="col">
+                <label for="">
+                  Mov
+                </label>
+                <input type="number" class="form-control" id="mov" readonly />
+              </div>
+              <div class="col">
+                <label for="">
+                  PVs
+                </label>
+                <input type="number" class="form-control" id="pvs" readonly />
+              </div>
+              <div class="col">
+                <label for="">
+                  Atual
+                </label>
+                <input type="number" class="form-control" />
+              </div>
+              <div class="col">
+                <label for="">
+                  PMs
+                </label>
+                <input type="number" class="form-control" id="pms" readonly />
+              </div>
+              <div class="col">
+                <label for="">
+                  Atual
+                </label>
+                <input type="number" class="form-control" />
+              </div>
+              <div class="col">
+                <label for="">
+                  PEs
+                </label>
+                <input type="number" class="form-control" id="pes" readonly />
+              </div>
+              <div class="col">
+                <label for="">
+                  Atual
+                </label>
+                <input type="number" class="form-control" />
+              </div>
+              <div class="col">
+                <label for="">
+                  Ptos Heróicos
+                </label>
+                <input type="number" class="form-control" />
+              </div>
+              <div class="col">
+                <label for="">
+                  Atual
+                </label>
+                <input type="number" class="form-control" />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card shadow mb-3">
+          <div class="card-body">
+            <div class="form-inline d-flex justify-content-center mb-3">
+              <div class="form-group mr-2">
+                <label class="mr-2 d-inline" for="">Dano da Arma</label>
+                <input
+                  type="number"
+                  class="form-control d-inline"
+                  id="dano-arma"
+                />
+              </div>
+              <div class="form-group mr-2">
+                <label class="mr-2 d-inline" for="">/</label>
+                <input
+                  type="number"
+                  class="form-control d-inline"
+                  id="forca-armadura"
+                  readonly
+                />
+              </div>
+              <div class="form-group">
+                <label class="d-inline mr-2" for="">Armadura</label>
+                <input
+                  type="number"
+                  class="form-control d-inline"
+                  id="armadura"
+                />
+              </div>
+            </div>
+
+            <div class="form-row d-flex justify-content-center">
+              <div class="form-group mt-3 mr-4 text-center">
+                <i class="fas fa-fist-raised"></i>
+                <span class="d-block">Ataque</span>
+              </div>
+              <div class="form-group mr-2">
+                <label class="d-inline" for="">Força</label>
+                <input
+                  type="number"
+                  class="form-control d-inline"
+                  id="forca-arma-a"
+                  onchange="calculaTotalArma()"
+                />
+              </div>
+              <div class="form-group mr-2 sinais">
+                <label for="">+</label>
+              </div>
+              <div class="form-group mr-2">
+                <label class="d-inline" for="">Destreza</label>
+                <input
+                  type="number"
+                  class="form-control d-inline"
+                  id="destreza-arma-a"
+                  onchange="calculaTotalArma()"
+                />
+              </div>
+              <div class="form-group mr-2 sinais">
+                <label for="">+</label>
+              </div>
+              <div class="form-group mr-2">
+                <label class="d-inline" for="">Dano da Arma</label>
+                <input
+                  type="number"
+                  class="form-control d-inline"
+                  id="dano-arma-a"
+                  onchange="calculaTotalArma()"
+                />
+              </div>
+              <div class="form-group mr-2 sinais">
+                <label for="">=</label>
+              </div>
+              <div class="form-group mr-2">
+                <label class="d-inline " for="">Total</label>
+                <input
+                  type="number"
+                  class="form-control d-inline"
+                  id="total-arma-a"
+                  readonly
+                />
+              </div>
+            </div>
+
+            <div class="form-row d-flex justify-content-center">
+              <div class="form-group mt-3 mr-4 text-center">
+                <i class="fas fa-shield-alt"></i>
+                <span class="d-block">Defesa</span>
+              </div>
+              <div class="form-group mr-2">
+                <label class="d-inline" for="">Força</label>
+                <input
+                  type="number"
+                  class="form-control d-inline"
+                  id="forca-arma-def"
+                  onchange="calculaTotalArma()"
+                />
+              </div>
+              <div class="form-group mr-2 sinais">
+                <label for="">+</label>
+              </div>
+              <div class="form-group mr-2">
+                <label class="d-inline" for="">Destreza</label>
+                <input
+                  type="number"
+                  class="form-control d-inline"
+                  id="destreza-arma-def"
+                  onchange="calculaTotalArma()"
+                />
+              </div>
+              <div class="form-group mr-2 sinais">
+                <label for="">+</label>
+              </div>
+              <div class="form-group mr-2">
+                <label class="d-inline" for="">Dano da Arma</label>
+                <input
+                  type="number"
+                  class="form-control d-inline"
+                  id="dano-arma-def"
+                  onchange="calculaTotalArma()"
+                />
+              </div>
+              <div class="form-group mr-2 sinais">
+                <label for="">=</label>
+              </div>
+              <div class="form-group mr-2">
+                <label class="d-inline " for="">Total</label>
+                <input
+                  type="number"
+                  class="form-control d-inline"
+                  id="total-arma-def"
+                  readonly
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://kit.fontawesome.com/af808331c8.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <script src="funcoes.js"></script>
+  </body>
+</html>

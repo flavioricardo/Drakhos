@@ -1,0 +1,9 @@
+.numero-pontos {
+  align-self: center;
+  text-align: right;
+}
+
+.sinais {
+  align-items: flex-end;
+  display: flex;
+}
